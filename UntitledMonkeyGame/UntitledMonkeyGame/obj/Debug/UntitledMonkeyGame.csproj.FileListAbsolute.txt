@@ -9,3 +9,14 @@ C:\Users\damai\source\repos\UntitledMonkeyGame\UntitledMonkeyGame\obj\Debug\Unti
 C:\Users\damai\source\repos\UntitledMonkeyGame\UntitledMonkeyGame\obj\Debug\UntitledMonkeyGame.pdb
 C:\Users\damai\source\repos\UntitledMonkeyGame\UntitledMonkeyGame\obj\Debug\UntitledMonkeyGame.GameMenu.resources
 C:\Users\damai\source\repos\UntitledMonkeyGame\UntitledMonkeyGame\obj\Debug\UntitledMonkeyGame.GameForm.resources
+C:\Users\StudentPL\Source\Repos\IO-project\UntitledMonkeyGame\UntitledMonkeyGame\bin\Debug\UntitledMonkeyGame.exe.config
+C:\Users\StudentPL\Source\Repos\IO-project\UntitledMonkeyGame\UntitledMonkeyGame\bin\Debug\UntitledMonkeyGame.exe
+C:\Users\StudentPL\Source\Repos\IO-project\UntitledMonkeyGame\UntitledMonkeyGame\bin\Debug\UntitledMonkeyGame.pdb
+C:\Users\StudentPL\Source\Repos\IO-project\UntitledMonkeyGame\UntitledMonkeyGame\obj\Debug\UntitledMonkeyGame.csproj.AssemblyReference.cache
+C:\Users\StudentPL\Source\Repos\IO-project\UntitledMonkeyGame\UntitledMonkeyGame\obj\Debug\UntitledMonkeyGame.GameForm.resources
+C:\Users\StudentPL\Source\Repos\IO-project\UntitledMonkeyGame\UntitledMonkeyGame\obj\Debug\UntitledMonkeyGame.GameMenu.resources
+C:\Users\StudentPL\Source\Repos\IO-project\UntitledMonkeyGame\UntitledMonkeyGame\obj\Debug\UntitledMonkeyGame.Properties.Resources.resources
+C:\Users\StudentPL\Source\Repos\IO-project\UntitledMonkeyGame\UntitledMonkeyGame\obj\Debug\UntitledMonkeyGame.csproj.GenerateResource.cache
+C:\Users\StudentPL\Source\Repos\IO-project\UntitledMonkeyGame\UntitledMonkeyGame\obj\Debug\UntitledMonkeyGame.csproj.CoreCompileInputs.cache
+C:\Users\StudentPL\Source\Repos\IO-project\UntitledMonkeyGame\UntitledMonkeyGame\obj\Debug\UntitledMonkeyGame.exe
+C:\Users\StudentPL\Source\Repos\IO-project\UntitledMonkeyGame\UntitledMonkeyGame\obj\Debug\UntitledMonkeyGame.pdb

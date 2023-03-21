@@ -13,6 +13,7 @@ namespace UntitledMonkeyGame
     public partial class GameForm : Form
     {
         private Monkey player;
+        private Tree przeszkoda;
         public GameForm()
         {
             InitializeComponent();
