@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\UntitledMonkeyGame",
+    "\\UntitledMonkeyGame\\UntitledMonkeyGame"
   ],
-  "SelectedNode": "\\UntitledMonkeyGame.sln",
+  "SelectedNode": "\\UntitledMonkeyGame\\UntitledMonkeyGame\\GameForm.cs",
   "PreviewInSolutionExplorer": false
 }
