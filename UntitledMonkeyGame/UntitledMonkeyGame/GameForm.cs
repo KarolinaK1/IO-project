@@ -15,7 +15,7 @@ namespace UntitledMonkeyGame
         private Monkey player;
         private Tree przeszkoda;
         private Banany banan;
-        private Kolo kolo;
+
         Random rand = new Random();
         public GameForm()
         {
@@ -29,11 +29,17 @@ namespace UntitledMonkeyGame
             this.Height = 500;
             var backgroundColor = System.Drawing.Color.FromArgb(8, 99, 5);
             this.BackColor = backgroundColor;
+
             this.player = new Monkey();
+            player.Location = new Point(200, Height - 2 * player.Height);
+
             this.przeszkoda = new Tree();
+            przeszkoda.Location = new Point(600, Height -  przeszkoda.Height);
+            
             this.banan = new Banany();
-            player.Location = new Point(200,Height - 2*player.Height);
-            przeszkoda.Location = new Point(600,Height -  przeszkoda.Height);
+            banan.Location = new Point(400, Height-2*banan.Height);
+
+            this.Controls.Add(banan);
             this.Controls.Add(player);
             this.Controls.Add(przeszkoda);
             timergame.Start();
@@ -65,7 +71,7 @@ namespace UntitledMonkeyGame
 
             foreach(Control t in this.Controls)
             {
-                if (t is PictureBox && (string)t.Tag == "obstacle")
+                if (t is PictureBox && ( (string)t.Tag == "obstacle" || (string)t.Tag == "Powerup"))
                 {
 
                     if(t.Left > 0)
@@ -74,7 +80,7 @@ namespace UntitledMonkeyGame
                     }
                     else if (t.Left <= 0)
                     {
-                        t.Left = 1000;
+                        t.Left += 1000;
                     }
 
                 }
@@ -85,7 +91,13 @@ namespace UntitledMonkeyGame
                     timergame.Stop();
                     MessageBox.Show("Game Over");
                 }
+            if (player.Bounds.IntersectsWith(banan.Bounds))
+            {
+                //this.Text += "1";
+                //this.Controls.Remove(banan);
                 
+            }
+
 
         }
 

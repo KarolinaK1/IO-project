@@ -31,3 +31,14 @@ C:\Us\UntitledMonkeyGame\UntitledMonkeyGame\obj\Debug\UntitledMonkeyGame.pdb
 C:\Us\UntitledMonkeyGame\UntitledMonkeyGame\bin\Debug\UntitledMonkeyGame.exe.config
 C:\Us\UntitledMonkeyGame\UntitledMonkeyGame\bin\Debug\UntitledMonkeyGame.exe
 C:\Us\UntitledMonkeyGame\UntitledMonkeyGame\bin\Debug\UntitledMonkeyGame.pdb
+C:\Users\StudentPL\Source\Repos\IO-project2\UntitledMonkeyGame\UntitledMonkeyGame\bin\Debug\UntitledMonkeyGame.exe.config
+C:\Users\StudentPL\Source\Repos\IO-project2\UntitledMonkeyGame\UntitledMonkeyGame\bin\Debug\UntitledMonkeyGame.exe
+C:\Users\StudentPL\Source\Repos\IO-project2\UntitledMonkeyGame\UntitledMonkeyGame\bin\Debug\UntitledMonkeyGame.pdb
+C:\Users\StudentPL\Source\Repos\IO-project2\UntitledMonkeyGame\UntitledMonkeyGame\obj\Debug\UntitledMonkeyGame.csproj.AssemblyReference.cache
+C:\Users\StudentPL\Source\Repos\IO-project2\UntitledMonkeyGame\UntitledMonkeyGame\obj\Debug\UntitledMonkeyGame.GameForm.resources
+C:\Users\StudentPL\Source\Repos\IO-project2\UntitledMonkeyGame\UntitledMonkeyGame\obj\Debug\UntitledMonkeyGame.GameMenu.resources
+C:\Users\StudentPL\Source\Repos\IO-project2\UntitledMonkeyGame\UntitledMonkeyGame\obj\Debug\UntitledMonkeyGame.Properties.Resources.resources
+C:\Users\StudentPL\Source\Repos\IO-project2\UntitledMonkeyGame\UntitledMonkeyGame\obj\Debug\UntitledMonkeyGame.csproj.GenerateResource.cache
+C:\Users\StudentPL\Source\Repos\IO-project2\UntitledMonkeyGame\UntitledMonkeyGame\obj\Debug\UntitledMonkeyGame.csproj.CoreCompileInputs.cache
+C:\Users\StudentPL\Source\Repos\IO-project2\UntitledMonkeyGame\UntitledMonkeyGame\obj\Debug\UntitledMonkeyGame.exe
+C:\Users\StudentPL\Source\Repos\IO-project2\UntitledMonkeyGame\UntitledMonkeyGame\obj\Debug\UntitledMonkeyGame.pdb

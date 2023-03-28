@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Windows.Forms;
 using System.Drawing;
+using System.Windows.Forms;
 
 namespace UntitledMonkeyGame
 {
@@ -8,10 +8,12 @@ namespace UntitledMonkeyGame
     {
         public Banany()
         {
-            this.Height = 25
-            this.Width = 10;
+            this.Tag = "Powerup";
             this.BackColor = Color.Yellow;
+            this.Height = 40;
+            this.Width = 40;
+
         }
+
     }
 }
-
