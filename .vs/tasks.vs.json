@@ -1,0 +1,10 @@
+{
+  "version": "0.2.1",
+  "tasks": [
+    {
+      "taskLabel": "zadanie-Banany",
+      "appliesTo": "UntitledMonkeyGame/UntitledMonkeyGame/Banany.cs",
+      "type": "launch"
+    }
+  ]
+}

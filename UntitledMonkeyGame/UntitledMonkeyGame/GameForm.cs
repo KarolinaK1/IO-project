@@ -14,6 +14,9 @@ namespace UntitledMonkeyGame
     {
         private Monkey player;
         private Tree przeszkoda;
+        private Banany banan;
+        private Kolo kolo;
+        Random rand = new Random();
         public GameForm()
         {
             InitializeComponent();
@@ -27,8 +30,12 @@ namespace UntitledMonkeyGame
             var backgroundColor = System.Drawing.Color.FromArgb(8, 99, 5);
             this.BackColor = backgroundColor;
             this.player = new Monkey();
-            player.Location = new Point(200, Height - 2*player.Height);
+            this.przeszkoda = new Tree();
+            this.banan = new Banany();
+            player.Location = new Point(200,Height - 2*player.Height);
+            przeszkoda.Location = new Point(600,Height -  przeszkoda.Height);
             this.Controls.Add(player);
+            this.Controls.Add(przeszkoda);
             timergame.Start();
         }
 
@@ -56,7 +63,32 @@ namespace UntitledMonkeyGame
                 player.Jumping = false;
             }
 
+            foreach(Control t in this.Controls)
+            {
+                if (t is PictureBox && (string)t.Tag == "obstacle")
+                {
+
+                    if(t.Left > 0)
+                    {
+                        t.Left -= 20;
+                    }
+                    else if (t.Left <= 0)
+                    {
+                        t.Left = 1000;
+                    }
+
+                }
+            }
+
+            if(player.Bounds.IntersectsWith(przeszkoda.Bounds))
+                {
+                    timergame.Stop();
+                    MessageBox.Show("Game Over");
+                }
+                
+
         }
+
 
         private void KeyIsDown(object sender, KeyEventArgs e)
         {
