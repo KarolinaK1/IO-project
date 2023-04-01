@@ -15,6 +15,8 @@ namespace UntitledMonkeyGame
         private Monkey player;
         private Tree przeszkoda;
         private Banany banan;
+        private GamePanel myGame;
+
 
         Random rand = new Random();
         public GameForm()
@@ -25,23 +27,29 @@ namespace UntitledMonkeyGame
 
         private void GameReset()
         {
+            myGame = new GamePanel();
+            myGame.Location = new Point(0, 0);
+            this.Controls.Add(myGame);
+
             this.Width = 1000;
             this.Height = 500;
+            myGame.Dock = DockStyle.Fill;
+
             var backgroundColor = System.Drawing.Color.FromArgb(8, 99, 5);
             this.BackColor = backgroundColor;
 
             this.player = new Monkey();
-            player.Location = new Point(200, Height - 2 * player.Height);
+            player.Location = new Point(200, myGame.Height - player.Height);
 
             this.przeszkoda = new Tree();
-            przeszkoda.Location = new Point(600, Height -  przeszkoda.Height);
+            przeszkoda.Location = new Point(600, myGame.Height -  przeszkoda.Height);
             
             this.banan = new Banany();
-            banan.Location = new Point(400, Height-2*banan.Height);
+            banan.Location = new Point(400, myGame.Height -banan.Height);
 
-            this.Controls.Add(banan);
-            this.Controls.Add(player);
-            this.Controls.Add(przeszkoda);
+            myGame.Controls.Add(banan);
+            myGame.Controls.Add(player);
+            myGame.Controls.Add(przeszkoda);
             timergame.Start();
         }
 
@@ -69,7 +77,7 @@ namespace UntitledMonkeyGame
                 player.Jumping = false;
             }
 
-            foreach(Control t in this.Controls)
+            foreach(Control t in myGame.Controls)
             {
                 if (t is PictureBox && ( (string)t.Tag == "obstacle" || (string)t.Tag == "Powerup"))
                 {

@@ -76,6 +76,9 @@
     <Compile Include="GameMenu.Designer.cs">
       <DependentUpon>GameMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="GamePanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Monkey.cs">
       <SubType>Component</SubType>
     </Compile>
