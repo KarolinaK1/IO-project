@@ -45,9 +45,8 @@ namespace UntitledMonkeyGame
 
         private void GameTimer(object sender, EventArgs e)
         {
-            GameScore = 0;
-            jakistimer += 1;
             this.Text = "Score: " + GameScore;
+            jakistimer += 1;
             if (jakistimer % 25 == 0)
             { 
 
@@ -106,8 +105,7 @@ namespace UntitledMonkeyGame
                     }
                     if (player.Bounds.IntersectsWith(t.Bounds) && (string)t.Tag == "Powerup")
                     {
-                        GameScore += 2;
-                        
+                        GameScore ++;
                         myGame.Controls.Remove(t);
                         t.Name = null;
                     }
