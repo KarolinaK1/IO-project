@@ -35,6 +35,7 @@ namespace UntitledMonkeyGame
             // 
             // timergame
             // 
+            this.timergame.Interval = 30;
             this.timergame.Tick += new System.EventHandler(this.GameTimer);
             // 
             // GameForm

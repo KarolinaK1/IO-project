@@ -13,11 +13,9 @@ namespace UntitledMonkeyGame
     public partial class GameForm : Form
     {
         private Monkey player;
-        private Tree przeszkoda;
-        private Banany banan;
         private GamePanel myGame;
-
-
+        private int jakistimer;
+        private int GameScore;
         Random rand = new Random();
         public GameForm()
         {
@@ -40,33 +38,48 @@ namespace UntitledMonkeyGame
 
             this.player = new Monkey();
             player.Location = new Point(200, myGame.Height - player.Height);
-
-            this.przeszkoda = new Tree();
-            przeszkoda.Location = new Point(600, myGame.Height -  przeszkoda.Height);
-            
-            this.banan = new Banany();
-            banan.Location = new Point(400, myGame.Height -banan.Height);
-
-            myGame.Controls.Add(banan);
             myGame.Controls.Add(player);
-            myGame.Controls.Add(przeszkoda);
+            
             timergame.Start();
         }
 
         private void GameTimer(object sender, EventArgs e)
         {
+            GameScore = 0;
+            jakistimer += 1;
+            this.Text = "Score: " + GameScore;
+            if (jakistimer % 25 == 0)
+            { 
+
+                Random rnd = new Random();
+                int dice = rnd.Next(1, 7);
+                if (dice > 2)
+                {
+                    Tree przeszkoda = new Tree();
+                    przeszkoda.Location = new Point(myGame.Width, myGame.Height - przeszkoda.Height);
+                    myGame.Controls.Add(przeszkoda);
+
+                }
+                else
+                {
+                    Banany banan = new Banany();
+                    banan.Location = new Point(myGame.Width, myGame.Height - banan.Height);
+                    myGame.Controls.Add(banan);
+                }
+                
+            }
 
             if (player.Jumping)
             {
                 if (!player.IsAirborne)
                 {
-                    player.JumpSpeed = 30;
+                    player.JumpSpeed = 40;
                     player.IsAirborne = true;
                 }
                 if (player.IsAirborne)
                 {
                     player.Top -= player.JumpSpeed;
-                    if (player.JumpSpeed > -(2 * 30)) player.JumpSpeed-=5;
+                    if (player.JumpSpeed > -(2 * 40)) player.JumpSpeed-=4;
                 }
 
             }
@@ -84,27 +97,31 @@ namespace UntitledMonkeyGame
 
                     if(t.Left > 0)
                     {
-                        t.Left -= 20;
+                        t.Left -= 15;
                     }
-                    else if (t.Left <= 0)
+                    if (t.Left <= 0)
                     {
-                        t.Left += 1000;
+                        myGame.Controls.Remove(t);
+                        t.Name = null;
                     }
-
+                    if (player.Bounds.IntersectsWith(t.Bounds) && (string)t.Tag == "Powerup")
+                    {
+                        GameScore += 2;
+                        
+                        myGame.Controls.Remove(t);
+                        t.Name = null;
+                    }
+                    if (player.Bounds.IntersectsWith(t.Bounds) && (string)t.Tag == "obstacle")
+                    {
+                        timergame.Stop();
+                        MessageBox.Show("Game Over");
+                    }
                 }
             }
 
-            if(player.Bounds.IntersectsWith(przeszkoda.Bounds))
-                {
-                    timergame.Stop();
-                    MessageBox.Show("Game Over");
-                }
-            if (player.Bounds.IntersectsWith(banan.Bounds))
-            {
-                //this.Text += "1";
-                //this.Controls.Remove(banan);
-                
-            }
+            
+            
+            
 
 
         }
