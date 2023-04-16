@@ -46,5 +46,7 @@ namespace UntitledMonkeyGame
             }
         }
 
+        public bool Falling { get; set; }
+        public int FallSpeed { get; internal set; }
     }
 }

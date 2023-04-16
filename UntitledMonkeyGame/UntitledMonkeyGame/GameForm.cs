@@ -47,14 +47,16 @@ namespace UntitledMonkeyGame
         {
             this.Text = "Score: " + GameScore;
             jakistimer += 1;
-            if (jakistimer % 25 == 0)
+            if (jakistimer % 35 == 0)
             { 
 
                 Random rnd = new Random();
-                int dice = rnd.Next(1, 7);
-                if (dice > 2)
+                int dice = rnd.Next(1, 8);
+                if (dice > 0)
                 {
                     Tree przeszkoda = new Tree();
+                    przeszkoda.Width = 200;
+                    przeszkoda.Height = 90;
                     przeszkoda.Location = new Point(myGame.Width, myGame.Height - przeszkoda.Height);
                     myGame.Controls.Add(przeszkoda);
 
@@ -70,50 +72,71 @@ namespace UntitledMonkeyGame
 
             if (player.Jumping)
             {
-                if (!player.IsAirborne)
+                player.Top -= player.JumpSpeed;
+                player.JumpSpeed -= 6;
+                if (player.JumpSpeed <= 0)
                 {
-                    player.JumpSpeed = 40;
-                    player.IsAirborne = true;
+                    player.Jumping = false;
+                    player.Falling = true;
+                    player.FallSpeed = 0;
                 }
-                if (player.IsAirborne)
-                {
-                    player.Top -= player.JumpSpeed;
-                    if (player.JumpSpeed > -(2 * 40)) player.JumpSpeed-=4;
-                }
-
             }
-            
-            if (player.Top == Height-(2*player.Height) && player.IsAirborne == true)
+            if (player.Falling)
             {
-                player.IsAirborne = false;
-                player.Jumping = false;
+                player.Top += player.FallSpeed;
+                player.FallSpeed += 6;
+                if (player.Bottom >= myGame.Height) player.Falling = false;
             }
 
-            foreach(Control t in myGame.Controls)
+            if (player.Bottom + player.FallSpeed > myGame.Height)
+            {
+                player.FallSpeed = myGame.Height - player.Bottom;
+            }
+
+            foreach (Control t in myGame.Controls)
             {
                 if (t is PictureBox && ( (string)t.Tag == "obstacle" || (string)t.Tag == "Powerup"))
                 {
 
-                    if(t.Left > 0)
+                    if(t.Left > -t.Width)
                     {
                         t.Left -= 15;
                     }
-                    if (t.Left <= 0)
+                    if (t.Left <= -t.Width)
                     {
                         myGame.Controls.Remove(t);
-                        t.Name = null;
                     }
                     if (player.Bounds.IntersectsWith(t.Bounds) && (string)t.Tag == "Powerup")
                     {
                         GameScore ++;
                         myGame.Controls.Remove(t);
-                        t.Name = null;
                     }
                     if (player.Bounds.IntersectsWith(t.Bounds) && (string)t.Tag == "obstacle")
                     {
                         timergame.Stop();
                         MessageBox.Show("Game Over");
                     }
+                    if((string)t.Tag == "obstacle")
+                    {
+                        if( player.Bottom + player.FallSpeed > t.Top && player.Right > t.Left && player.Left < t.Right)
+                        {
+                            player.FallSpeed = t.Top - player.Bottom;
+                        }
+                        if (player.Bottom  == t.Top && player.Right > t.Left && player.Left < t.Right && player.Falling == true)
+                        {
+                            player.Falling = false;
+                        }
+                        if (player.Bottom == t.Top &&  player.Falling == false && player.Left > t.Right )
+                        {
+                            player.Falling = true;
+                            player.FallSpeed = 0;
+                        }
+
+
+                    }
+                    
+                    
+
                 }
             }
 
@@ -127,8 +150,9 @@ namespace UntitledMonkeyGame
 
         private void KeyIsDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.W && player.Jumping == false)
+            if (e.KeyCode == Keys.W && player.Jumping == false && !player.Falling)
             {
+                player.JumpSpeed = 40;
                 player.Jumping = true;
 
 
