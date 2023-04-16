@@ -45,6 +45,7 @@ namespace UntitledMonkeyGame
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Name = "GameForm";
             this.Text = "MonkeyTheGame";
+            this.Load += new System.EventHandler(this.GameForm_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyIsDown);
             this.ResumeLayout(false);
 

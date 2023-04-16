@@ -64,3 +64,15 @@ C:\IO-\UntitledMonkeyGame\UntitledMonkeyGame\obj\Debug\UntitledMonkeyGame.pdb
 C:\IO-\UntitledMonkeyGame\UntitledMonkeyGame\bin\Debug\UntitledMonkeyGame.exe.config
 C:\IO-\UntitledMonkeyGame\UntitledMonkeyGame\bin\Debug\UntitledMonkeyGame.exe
 C:\IO-\UntitledMonkeyGame\UntitledMonkeyGame\bin\Debug\UntitledMonkeyGame.pdb
+C:\Users\Administrator\IO-monkey\UntitledMonkeyGame\UntitledMonkeyGame\bin\Debug\UntitledMonkeyGame.exe.config
+C:\Users\Administrator\IO-monkey\UntitledMonkeyGame\UntitledMonkeyGame\bin\Debug\UntitledMonkeyGame.exe
+C:\Users\Administrator\IO-monkey\UntitledMonkeyGame\UntitledMonkeyGame\bin\Debug\UntitledMonkeyGame.pdb
+C:\Users\Administrator\IO-monkey\UntitledMonkeyGame\UntitledMonkeyGame\obj\Debug\UntitledMonkeyGame.csproj.AssemblyReference.cache
+C:\Users\Administrator\IO-monkey\UntitledMonkeyGame\UntitledMonkeyGame\obj\Debug\UntitledMonkeyGame.csproj.SuggestedBindingRedirects.cache
+C:\Users\Administrator\IO-monkey\UntitledMonkeyGame\UntitledMonkeyGame\obj\Debug\UntitledMonkeyGame.GameForm.resources
+C:\Users\Administrator\IO-monkey\UntitledMonkeyGame\UntitledMonkeyGame\obj\Debug\UntitledMonkeyGame.GameMenu.resources
+C:\Users\Administrator\IO-monkey\UntitledMonkeyGame\UntitledMonkeyGame\obj\Debug\UntitledMonkeyGame.Properties.Resources.resources
+C:\Users\Administrator\IO-monkey\UntitledMonkeyGame\UntitledMonkeyGame\obj\Debug\UntitledMonkeyGame.csproj.GenerateResource.cache
+C:\Users\Administrator\IO-monkey\UntitledMonkeyGame\UntitledMonkeyGame\obj\Debug\UntitledMonkeyGame.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\IO-monkey\UntitledMonkeyGame\UntitledMonkeyGame\obj\Debug\UntitledMonkeyGame.exe
+C:\Users\Administrator\IO-monkey\UntitledMonkeyGame\UntitledMonkeyGame\obj\Debug\UntitledMonkeyGame.pdb
