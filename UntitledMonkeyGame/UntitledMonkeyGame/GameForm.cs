@@ -45,19 +45,29 @@ namespace UntitledMonkeyGame
 
         private void GameTimer(object sender, EventArgs e)
         {
+            Random rnd = new Random();
             this.Text = "Score: " + GameScore;
-            jakistimer += 1;
+            int rndtimer = rnd.Next(1, 4);
+            jakistimer += rndtimer;
             if (jakistimer % 35 == 0)
             { 
 
-                Random rnd = new Random();
+                
                 int dice = rnd.Next(1, 8);
                 if (dice > 0)
                 {
                     Tree przeszkoda = new Tree();
-                    przeszkoda.Width = 200;
-                    przeszkoda.Height = 90;
-                    przeszkoda.Location = new Point(myGame.Width, myGame.Height - przeszkoda.Height);
+                    przeszkoda.Width = rnd.Next(40,150);
+                    przeszkoda.Height = rnd.Next(50, 80);
+                    int prob = rnd.Next(100);
+                    if( prob < 20)
+                    {
+                        przeszkoda.Location = new Point(myGame.Width, myGame.Height - przeszkoda.Height - 60);
+                    }
+                    else
+                    {
+                        przeszkoda.Location = new Point(myGame.Width, myGame.Height - przeszkoda.Height);
+                    }
                     myGame.Controls.Add(przeszkoda);
 
                 }
@@ -118,11 +128,11 @@ namespace UntitledMonkeyGame
                     }
                     if((string)t.Tag == "obstacle")
                     {
-                        if( player.Bottom + player.FallSpeed > t.Top && player.Right > t.Left && player.Left < t.Right)
+                        if( player.Bottom + player.FallSpeed > t.Top && player.Right >= t.Left && player.Left <= t.Right)
                         {
                             player.FallSpeed = t.Top - player.Bottom;
                         }
-                        if (player.Bottom  == t.Top && player.Right > t.Left && player.Left < t.Right && player.Falling == true)
+                        if (player.Bottom  == t.Top && player.Right >= t.Left && player.Left <= t.Right && player.Falling == true)
                         {
                             player.Falling = false;
                         }
