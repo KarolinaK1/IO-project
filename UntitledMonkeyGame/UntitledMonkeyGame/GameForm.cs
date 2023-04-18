@@ -34,7 +34,8 @@ namespace UntitledMonkeyGame
             myGame.Dock = DockStyle.Fill;
 
             var backgroundColor = System.Drawing.Color.FromArgb(8, 99, 5);
-            this.BackColor = backgroundColor;
+            //this.BackColor = backgroundColor;
+            myGame.BackgroundImage = Properties.Resources.grass1;
 
             this.player = new Monkey();
             player.Location = new Point(200, myGame.Height - player.Height);

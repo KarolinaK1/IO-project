@@ -29,19 +29,21 @@ namespace UntitledMonkeyGame
         /// </summary>
         private void InitializeComponent()
         {
-            this.StartButton = new System.Windows.Forms.Button();
+            this.PLAY = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // StartButton
+            // PLAY
             // 
-            this.StartButton.Location = new System.Drawing.Point(311, 200);
-            this.StartButton.Name = "StartButton";
-            this.StartButton.Size = new System.Drawing.Size(129, 67);
-            this.StartButton.TabIndex = 0;
-            this.StartButton.Text = "StartButton";
-            this.StartButton.UseVisualStyleBackColor = true;
-            this.StartButton.Click += new System.EventHandler(this.StartButton_Click);
+            this.PLAY.BackColor = System.Drawing.Color.LightCyan;
+            this.PLAY.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PLAY.Location = new System.Drawing.Point(238, 213);
+            this.PLAY.Name = "PLAY";
+            this.PLAY.Size = new System.Drawing.Size(129, 67);
+            this.PLAY.TabIndex = 0;
+            this.PLAY.Text = "PLAY";
+            this.PLAY.UseVisualStyleBackColor = false;
+            this.PLAY.Click += new System.EventHandler(this.StartButton_Click);
             // 
             // button1
             // 
@@ -56,9 +58,13 @@ namespace UntitledMonkeyGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.Color.RosyBrown;
+            this.BackgroundImage = global::UntitledMonkeyGame.Properties.Resources.monkeyplay;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(608, 450);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.StartButton);
+            this.Controls.Add(this.PLAY);
+            this.DoubleBuffered = true;
             this.Name = "GameMenu";
             this.Text = "UntitledMonkeyGame";
             this.ResumeLayout(false);
@@ -67,7 +73,7 @@ namespace UntitledMonkeyGame
 
         #endregion
 
-        private System.Windows.Forms.Button StartButton;
+        private System.Windows.Forms.Button PLAY;
         private System.Windows.Forms.Button button1;
     }
 }

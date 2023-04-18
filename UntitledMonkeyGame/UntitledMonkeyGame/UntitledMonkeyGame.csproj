@@ -132,5 +132,14 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\grass.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\grass.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\monkeyplay.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
