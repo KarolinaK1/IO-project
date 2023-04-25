@@ -10,24 +10,32 @@ using System.Windows.Forms;
 
 namespace UntitledMonkeyGame
 {
-    public partial class GameForm : Form
+    public partial class restartImage : Form
     {
         private Monkey player;
         private GamePanel myGame;
         private int jakistimer;
-        private int GameScore;
+        private int GameScore = 0;
         Random rand = new Random();
-        public GameForm()
+       
+        public restartImage()
         {
             InitializeComponent();
             GameReset();
         }
+
+       
 
         private void GameReset()
         {
             myGame = new GamePanel();
             myGame.Location = new Point(0, 0);
             this.Controls.Add(myGame);
+
+           
+
+           
+            
 
             this.Width = 1000;
             this.Height = 500;
@@ -40,14 +48,20 @@ namespace UntitledMonkeyGame
             this.player = new Monkey();
             player.Location = new Point(200, myGame.Height - player.Height);
             myGame.Controls.Add(player);
-            
+
+            GameScore = 0;
+            scoreText.Text = "Score: 0";
+            retryImage.Enabled = false;
+            retryImage.Visible = false;
+
+
             timergame.Start();
         }
 
         private void GameTimer(object sender, EventArgs e)
         {
             Random rnd = new Random();
-            this.Text = "Score: " + GameScore;
+            scoreText.Text = "Score: " + GameScore;
             int rndtimer = rnd.Next(1, 4);
             jakistimer += rndtimer;
             if (jakistimer % 35 == 0)
@@ -115,7 +129,7 @@ namespace UntitledMonkeyGame
                     {
                         myGame.Controls.Remove(t);
                         GameScore = GameScore + 1;
-                        this.Text = "Score: " + GameScore;
+                        
                     }
                     if (player.Bounds.IntersectsWith(t.Bounds) && (string)t.Tag == "Powerup")
                     {
@@ -123,13 +137,12 @@ namespace UntitledMonkeyGame
                     }
                     if (player.Bounds.IntersectsWith(t.Bounds) && (string)t.Tag == "obstacle")
                     {
-                        this.Text = "dead";
-                        timergame.Stop();    
-                        MessageBox.Show("Game Over");
+                        
+                      Endgame();
 
-
-                    }  
-                    if((string)t.Tag == "obstacle")
+                    }
+                    
+                    if ((string)t.Tag == "obstacle")
                     {
                         if( player.Bottom + player.FallSpeed > t.Top && player.Right >= t.Left && player.Left <= t.Right)
                         {
@@ -164,17 +177,44 @@ namespace UntitledMonkeyGame
 
         private void KeyIsDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.W && player.Jumping == false && !player.Falling)
+            if (e.KeyCode == Keys.Space && player.Jumping == false && !player.Falling)
             {
                 player.JumpSpeed = 40;
                 player.Jumping = true;
 
-
+                
+               
             }
+
         }
+
 
         private void GameForm_Load(object sender, EventArgs e)
         {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+       
+        private void RestartClickEvent(object sender, EventArgs e)
+        {
+            GameReset();
+        }
+
+        private void Endgame()
+        {
+            timergame.Stop();
+
+            scoreText.Text += " Game over!!!";
+            retryImage.Enabled = true;
+            retryImage.Visible = true;
+           
+            
+
 
         }
     }

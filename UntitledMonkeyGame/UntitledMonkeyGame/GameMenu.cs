@@ -20,7 +20,7 @@ namespace UntitledMonkeyGame
 
         private void StartButton_Click(object sender, EventArgs e)
         {
-            GameForm GF = new GameForm();
+            restartImage GF = new restartImage();
             GF.Show();
 
         }
