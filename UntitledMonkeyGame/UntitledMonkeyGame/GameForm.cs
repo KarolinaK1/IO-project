@@ -20,6 +20,7 @@ namespace UntitledMonkeyGame
        
         public restartImage()
         {
+
             InitializeComponent();
             GameReset();
         }
@@ -28,6 +29,7 @@ namespace UntitledMonkeyGame
 
         private void GameReset()
         {
+            timergame.Stop();
             myGame = new GamePanel();
             myGame.Location = new Point(0, 0);
             this.Controls.Add(myGame);
@@ -202,6 +204,7 @@ namespace UntitledMonkeyGame
        
         private void RestartClickEvent(object sender, EventArgs e)
         {
+            this.myGame.Dispose();
             GameReset();
         }
 
