@@ -19,6 +19,8 @@ namespace UntitledMonkeyGame
             Jumping = false;
             IsAirborne = false;
             JumpSpeed = 0;
+            SetStyle(ControlStyles.SupportsTransparentBackColor, true);
+            this.BackColor = Color.Transparent;
         }
         public bool Jumping
         {
