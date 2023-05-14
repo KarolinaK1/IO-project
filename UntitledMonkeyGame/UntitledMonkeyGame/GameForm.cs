@@ -16,6 +16,7 @@ namespace UntitledMonkeyGame
         private GamePanel myGame;
         private int jakistimer;
         private int GameScore = 0;
+        private int gameLevel = 0;
         Random rand = new Random();
        
         public restartImage()
@@ -35,10 +36,9 @@ namespace UntitledMonkeyGame
             this.Height = 500;
             myGame.Dock = DockStyle.Fill;
 
-            var backgroundColor = System.Drawing.Color.FromArgb(8, 99, 5);
-            //this.BackColor = backgroundColor;
             myGame.BackgroundImage = Properties.Resources.grass1;
-
+            //this.BackColor = System.Drawing.Color.FromArgb(8, 99, 5);
+            
             this.player = new Monkey();
             player.Location = new Point(200, myGame.Height - player.Height);
             myGame.Controls.Add(player);
@@ -48,43 +48,25 @@ namespace UntitledMonkeyGame
             retryImage.Enabled = false;
             retryImage.Visible = false;
 
+            gameLevel = 0;
+
             timergame.Start();
         }
 
         private void GameTimer(object sender, EventArgs e)
         {
-            Random rnd = new Random();
+            
             scoreText.Text = "Score: " + GameScore;
-            int rndtimer = rnd.Next(1, 4);
-            jakistimer += rndtimer;
-            if (jakistimer % 35 == 0)
-            { 
-                int dice = rnd.Next(1, 8);
-                if (dice > 0)
-                {
-                    Tree przeszkoda = new Tree();
-                    przeszkoda.Width = rnd.Next(40,150);
-                    przeszkoda.Height = rnd.Next(50, 80);
-                    int prob = rnd.Next(100);
-                    if( prob < 20)
-                    {
-                        przeszkoda.Location = new Point(myGame.Width, myGame.Height - przeszkoda.Height - 60);
-                    }
-                    else
-                    {
-                        przeszkoda.Location = new Point(myGame.Width, myGame.Height - przeszkoda.Height);
-                    }
-                    myGame.Controls.Add(przeszkoda);
-                }
-                else
-                {
-                    Banany banan = new Banany();
-                    banan.Location = new Point(myGame.Width, myGame.Height - banan.Height);
-                    myGame.Controls.Add(banan);
-                }
-                
+            
+            if (gameLevel == 0)
+            {
+                Timer obstacleTimer = new Timer();
+                obstacleTimer.Start();
+                obstacleTimer.Interval = 1000;
+                obstacleTimer.Tick += ObstacleTimer_Tick;
+                gameLevel++;
             }
-
+            
             if (player.Jumping)
             {
                 player.Top -= player.JumpSpeed;
@@ -96,6 +78,7 @@ namespace UntitledMonkeyGame
                     player.FallSpeed = 0;
                 }
             }
+
             if (player.Falling)
             {
                 player.Top += player.FallSpeed;
@@ -108,8 +91,8 @@ namespace UntitledMonkeyGame
                 player.FallSpeed = myGame.Height - player.Bottom;
             }
 
-            Control ObjectToDelete = new Control();
 
+            Control ObjectToDelete = new Control();
             foreach (Control t in myGame.Controls)
             {
                 if (t is PictureBox && ( (string)t.Tag == "obstacle" || (string)t.Tag == "Powerup"))
@@ -150,11 +133,40 @@ namespace UntitledMonkeyGame
                     }
                 }
             }
-
             myGame.Controls.Remove(ObjectToDelete);
 
         }
 
+        private void ObstacleTimer_Tick(object sender, EventArgs e)
+        {
+            Random rnd = new Random();
+
+            int dice = rnd.Next(1, 8);
+            if (dice > 0)
+            {
+                Tree przeszkoda = new Tree();
+                przeszkoda.Width = rnd.Next(40, 150);
+                przeszkoda.Height = rnd.Next(50, 80);
+                int prob = rnd.Next(100);
+                if (prob < 20)
+                {
+                    przeszkoda.Location = new Point(myGame.Width, myGame.Height - przeszkoda.Height - 60);
+                }
+                else
+                {
+                    przeszkoda.Location = new Point(myGame.Width, myGame.Height - przeszkoda.Height);
+                }
+                myGame.Controls.Add(przeszkoda);
+            }
+            else
+            {
+                Banany banan = new Banany();
+                banan.Location = new Point(myGame.Width, myGame.Height - banan.Height);
+                myGame.Controls.Add(banan);
+            }
+
+            
+        }
 
         private void KeyIsDown(object sender, KeyEventArgs e)
         {
