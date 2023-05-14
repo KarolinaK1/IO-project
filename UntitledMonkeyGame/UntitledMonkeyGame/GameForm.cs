@@ -18,7 +18,8 @@ namespace UntitledMonkeyGame
         private int GameScore = 0;
         private int gameLevel = 0;
         Random rand = new Random();
-       
+        Timer obstacleTimer = new Timer();
+        private int obstacleSpeed;
         public restartImage()
         {
             InitializeComponent();
@@ -36,8 +37,8 @@ namespace UntitledMonkeyGame
             this.Height = 500;
             myGame.Dock = DockStyle.Fill;
 
-            myGame.BackgroundImage = Properties.Resources.grass1;
-            //this.BackColor = System.Drawing.Color.FromArgb(8, 99, 5);
+            //myGame.BackgroundImage = Properties.Resources.grass1;
+            this.BackColor = Color.SkyBlue;
             
             this.player = new Monkey();
             player.Location = new Point(200, myGame.Height - player.Height);
@@ -48,29 +49,37 @@ namespace UntitledMonkeyGame
             retryImage.Enabled = false;
             retryImage.Visible = false;
 
+            obstacleSpeed = 10;
             gameLevel = 0;
+            obstacleTimer.Start();
+            obstacleTimer.Interval = 2000;
+            obstacleTimer.Tick += ObstacleTimer_Tick;
 
+            timergame.Interval = 30;
             timergame.Start();
         }
 
         private void GameTimer(object sender, EventArgs e)
         {
+
             
             scoreText.Text = "Score: " + GameScore;
-            
-            if (gameLevel == 0)
+
+            if(gameLevel==0 && GameScore == 10)
             {
-                Timer obstacleTimer = new Timer();
-                obstacleTimer.Start();
-                obstacleTimer.Interval = 1000;
-                obstacleTimer.Tick += ObstacleTimer_Tick;
-                gameLevel++;
+                obstacleTimer.Interval = 1500;
+                obstacleSpeed++;
+                gameLevel = 1;
+            }
+            if(gameLevel==1 && obstacleSpeed < 15)
+            {
+                obstacleSpeed++;
             }
             
             if (player.Jumping)
             {
                 player.Top -= player.JumpSpeed;
-                player.JumpSpeed -= 6;
+                player.JumpSpeed -= 4;
                 if (player.JumpSpeed <= 0)
                 {
                     player.Jumping = false;
@@ -82,7 +91,7 @@ namespace UntitledMonkeyGame
             if (player.Falling)
             {
                 player.Top += player.FallSpeed;
-                player.FallSpeed += 6;
+                player.FallSpeed += 4;
                 if (player.Bottom >= myGame.Height) player.Falling = false;
             }
 
@@ -99,7 +108,7 @@ namespace UntitledMonkeyGame
                 {
                     if (t.Left > -t.Width)
                     {
-                        t.Left -= 15;
+                        t.Left -= obstacleSpeed;
                     }
                     if (t.Left <= -t.Width)
                     {
@@ -112,7 +121,8 @@ namespace UntitledMonkeyGame
                     }
                     if (player.Bounds.IntersectsWith(t.Bounds) && (string)t.Tag == "obstacle")
                     {
-                      Endgame();
+                        
+                        Endgame();
                     }
                     
                     if ((string)t.Tag == "obstacle")
@@ -133,7 +143,8 @@ namespace UntitledMonkeyGame
                     }
                 }
             }
-            myGame.Controls.Remove(ObjectToDelete);
+            if(ObjectToDelete is Tree || ObjectToDelete is Banany)myGame.Controls.Remove(ObjectToDelete);
+
 
         }
 
@@ -141,38 +152,53 @@ namespace UntitledMonkeyGame
         {
             Random rnd = new Random();
 
-            int dice = rnd.Next(1, 8);
-            if (dice > 0)
+            int probability = rnd.Next(100);
+            if (probability < 20)
             {
                 Tree przeszkoda = new Tree();
                 przeszkoda.Width = rnd.Next(40, 150);
                 przeszkoda.Height = rnd.Next(50, 80);
-                int prob = rnd.Next(100);
-                if (prob < 20)
-                {
-                    przeszkoda.Location = new Point(myGame.Width, myGame.Height - przeszkoda.Height - 60);
-                }
-                else
-                {
-                    przeszkoda.Location = new Point(myGame.Width, myGame.Height - przeszkoda.Height);
-                }
+                przeszkoda.Location = new Point(myGame.Width, myGame.Height - przeszkoda.Height - 60);
                 myGame.Controls.Add(przeszkoda);
-            }
-            else
-            {
                 Banany banan = new Banany();
-                banan.Location = new Point(myGame.Width, myGame.Height - banan.Height);
+                banan.Location = new Point(myGame.Width+rnd.Next(przeszkoda.Width-banan.Width), przeszkoda.Top - banan.Height);
                 myGame.Controls.Add(banan);
             }
+            else if (probability < 40)
+            {
+                Tree przeszkoda = new Tree();
+                przeszkoda.Width = rnd.Next(40, 150);
+                przeszkoda.Height = rnd.Next(50, 80);
+                przeszkoda.Location = new Point(myGame.Width, myGame.Height - przeszkoda.Height);
+                myGame.Controls.Add(przeszkoda);
+                Banany banan = new Banany();
+                banan.Location = new Point(myGame.Width + rnd.Next(przeszkoda.Width - banan.Width), przeszkoda.Top - banan.Height);
+                myGame.Controls.Add(banan);
+            }
+            else if (probability < 60)
+            {
+                Tree przeszkoda = new Tree();
+                przeszkoda.Width = rnd.Next(40, 150);
+                przeszkoda.Height = rnd.Next(50, 80);
+                przeszkoda.Location = new Point(myGame.Width, myGame.Height - przeszkoda.Height);
+                myGame.Controls.Add(przeszkoda);
+            }
+            else if (probability < 80)
+            {
+                Tree przeszkoda = new Tree();
+                przeszkoda.Width = rnd.Next(40, 150);
+                przeszkoda.Height = rnd.Next(50, 80);
+                przeszkoda.Location = new Point(myGame.Width, myGame.Height - przeszkoda.Height - 60);
+                myGame.Controls.Add(przeszkoda);
+            }
 
-            
         }
 
         private void KeyIsDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Space && player.Jumping == false && !player.Falling)
             {
-                player.JumpSpeed = 40;
+                player.JumpSpeed = 35;
                 player.Jumping = true;
             }
 
@@ -198,8 +224,9 @@ namespace UntitledMonkeyGame
 
         private void Endgame()
         {
+            
             timergame.Stop();
-
+            obstacleTimer.Stop();
             scoreText.Text += " Game over!!!";
             retryImage.Enabled = true;
             retryImage.Visible = true;
