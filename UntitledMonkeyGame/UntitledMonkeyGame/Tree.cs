@@ -10,7 +10,10 @@ namespace UntitledMonkeyGame
         this.Height = 100;
         this.Width = 50;
         this.BackColor = Color.BurlyWood;
-    }
+        this.SizeMode = PictureBoxSizeMode.StretchImage;
+        this.Image = Properties.Resources.obstacle3;
+            
+        }
 
    }
 }

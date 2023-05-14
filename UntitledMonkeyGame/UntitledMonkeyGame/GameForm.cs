@@ -122,7 +122,6 @@ namespace UntitledMonkeyGame
                     {
                         ObjectToDelete = t;
                         GameScore = GameScore + 1;
-                        
                     }
                     if (player.Bounds.IntersectsWith(t.Bounds) && (string)t.Tag == "Powerup")
                     {
@@ -130,9 +129,7 @@ namespace UntitledMonkeyGame
                     }
                     if (player.Bounds.IntersectsWith(t.Bounds) && (string)t.Tag == "obstacle")
                     {
-                        
                       Endgame();
-
                     }
                     
                     if ((string)t.Tag == "obstacle")
@@ -151,9 +148,7 @@ namespace UntitledMonkeyGame
                             player.FallSpeed = 0;
                         }
                     }
-                   
                 }
-
             }
 
             myGame.Controls.Remove(ObjectToDelete);

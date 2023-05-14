@@ -150,5 +150,14 @@
   <ItemGroup>
     <None Include="Resources\retry.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Obstacle.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Obstacle2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -12,6 +12,8 @@ namespace UntitledMonkeyGame
             this.BackColor = Color.Yellow;
             this.Height = 40;
             this.Width = 40;
+            this.SizeMode = PictureBoxSizeMode.StretchImage;
+            this.Image = Properties.Resources.image;
 
         }
 
