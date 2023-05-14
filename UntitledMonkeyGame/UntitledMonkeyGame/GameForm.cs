@@ -50,6 +50,7 @@ namespace UntitledMonkeyGame
             retryImage.Visible = false;
 
             obstacleSpeed = 10;
+
             gameLevel = 0;
             obstacleTimer.Start();
             obstacleTimer.Interval = 2000;
@@ -68,11 +69,13 @@ namespace UntitledMonkeyGame
             if(gameLevel==0 && GameScore == 10)
             {
                 obstacleTimer.Interval = 1500;
+
                 obstacleSpeed++;
                 gameLevel = 1;
             }
             if(gameLevel==1 && obstacleSpeed < 15)
             {
+
                 obstacleSpeed++;
             }
             
