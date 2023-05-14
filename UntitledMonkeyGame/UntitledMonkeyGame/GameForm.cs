@@ -20,12 +20,9 @@ namespace UntitledMonkeyGame
        
         public restartImage()
         {
-
             InitializeComponent();
             GameReset();
         }
-
-       
 
         private void GameReset()
         {
@@ -33,11 +30,6 @@ namespace UntitledMonkeyGame
             myGame = new GamePanel();
             myGame.Location = new Point(0, 0);
             this.Controls.Add(myGame);
-
-           
-
-           
-            
 
             this.Width = 1000;
             this.Height = 500;
@@ -56,7 +48,6 @@ namespace UntitledMonkeyGame
             retryImage.Enabled = false;
             retryImage.Visible = false;
 
-
             timergame.Start();
         }
 
@@ -68,8 +59,6 @@ namespace UntitledMonkeyGame
             jakistimer += rndtimer;
             if (jakistimer % 35 == 0)
             { 
-
-                
                 int dice = rnd.Next(1, 8);
                 if (dice > 0)
                 {
@@ -119,6 +108,8 @@ namespace UntitledMonkeyGame
                 player.FallSpeed = myGame.Height - player.Bottom;
             }
 
+            Control ObjectToDelete = new Control();
+
             foreach (Control t in myGame.Controls)
             {
                 if (t is PictureBox && ( (string)t.Tag == "obstacle" || (string)t.Tag == "Powerup"))
@@ -129,13 +120,13 @@ namespace UntitledMonkeyGame
                     }
                     if (t.Left <= -t.Width)
                     {
-                        myGame.Controls.Remove(t);
+                        ObjectToDelete = t;
                         GameScore = GameScore + 1;
                         
                     }
                     if (player.Bounds.IntersectsWith(t.Bounds) && (string)t.Tag == "Powerup")
                     {
-                        myGame.Controls.Remove(t);
+                        ObjectToDelete = t;
                     }
                     if (player.Bounds.IntersectsWith(t.Bounds) && (string)t.Tag == "obstacle")
                     {
@@ -159,20 +150,13 @@ namespace UntitledMonkeyGame
                             player.Falling = true;
                             player.FallSpeed = 0;
                         }
-
- 
                     }
-                    
-                    
-
+                   
                 }
 
             }
 
-            
-            
-            
-
+            myGame.Controls.Remove(ObjectToDelete);
 
         }
 
@@ -183,9 +167,6 @@ namespace UntitledMonkeyGame
             {
                 player.JumpSpeed = 40;
                 player.Jumping = true;
-
-                
-               
             }
 
         }
@@ -215,10 +196,6 @@ namespace UntitledMonkeyGame
             scoreText.Text += " Game over!!!";
             retryImage.Enabled = true;
             retryImage.Visible = true;
-           
-            
-
-
         }
     }
 }
