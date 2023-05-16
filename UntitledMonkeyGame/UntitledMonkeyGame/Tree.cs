@@ -6,13 +6,13 @@ namespace UntitledMonkeyGame
     {
         public Tree ()
      { 
-        this.Tag = "obstacle";
+        this.Tag = "Obstacle";
         this.Height = 100;
         this.Width = 50;
-        this.BackColor = Color.BurlyWood;
+        
         this.SizeMode = PictureBoxSizeMode.StretchImage;
-        this.Image = Properties.Resources.obstacle3;
-            
+            this.Image = Properties.Resources.ground1;
+
         }
 
    }

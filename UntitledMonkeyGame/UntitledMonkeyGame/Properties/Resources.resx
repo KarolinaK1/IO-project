@@ -121,12 +121,6 @@
   <data name="monkey" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\monkey.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="monkeyplay" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\monkeyplay.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="monkeyplay1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\monkeyplay1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="monkeyjump" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\monkeyjump.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -136,16 +130,10 @@
   <data name="retry" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\retry.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Obstacle" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Obstacle.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Obstacle2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Obstacle2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="obstacle3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\..\..\..\Downloads\pixil-frame-0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="image" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="banan" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\image.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ground1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ground1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

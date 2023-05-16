@@ -8,12 +8,12 @@ namespace UntitledMonkeyGame
     {
         public Banany()
         {
-            this.Tag = "Powerup";
-            this.BackColor = Color.Yellow;
+            this.Tag = "Point";
+            
             this.Height = 40;
             this.Width = 40;
             this.SizeMode = PictureBoxSizeMode.StretchImage;
-            this.Image = Properties.Resources.image;
+            this.Image = Properties.Resources.banan;
 
         }
 

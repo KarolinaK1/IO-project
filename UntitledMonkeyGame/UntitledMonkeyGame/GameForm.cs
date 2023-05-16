@@ -12,6 +12,8 @@ namespace UntitledMonkeyGame
 {
     public partial class restartImage : Form
     {
+        //fajne grafiki do przejrzenia
+        //https://pixeljoint.com/forum/forum_posts.asp?TID=20453&PN=2
         private Monkey player;
         private GamePanel myGame;
         private int jakistimer;
@@ -37,8 +39,8 @@ namespace UntitledMonkeyGame
             this.Height = 500;
             myGame.Dock = DockStyle.Fill;
 
-            //myGame.BackgroundImage = Properties.Resources.grass1;
-            this.BackColor = Color.SkyBlue;
+            myGame.BackgroundImage = Properties.Resources.grass1;
+            //this.BackColor = Color.SkyBlue;
             
             this.player = new Monkey();
             player.Location = new Point(200, myGame.Height - player.Height);
@@ -107,7 +109,7 @@ namespace UntitledMonkeyGame
             Control ObjectToDelete = new Control();
             foreach (Control t in myGame.Controls)
             {
-                if (t is PictureBox && ( (string)t.Tag == "obstacle" || (string)t.Tag == "Powerup"))
+                if (t is PictureBox && ( (string)t.Tag == "Obstacle" || (string)t.Tag == "Point"))
                 {
                     if (t.Left > -t.Width)
                     {
@@ -118,17 +120,17 @@ namespace UntitledMonkeyGame
                         ObjectToDelete = t;
                         GameScore = GameScore + 1;
                     }
-                    if (player.Bounds.IntersectsWith(t.Bounds) && (string)t.Tag == "Powerup")
+                    if (player.Bounds.IntersectsWith(t.Bounds) && (string)t.Tag == "Point")
                     {
                         ObjectToDelete = t;
                     }
-                    if (player.Bounds.IntersectsWith(t.Bounds) && (string)t.Tag == "obstacle")
+                    if (player.Bounds.IntersectsWith(t.Bounds) && (string)t.Tag == "Obstacle")
                     {
                         
                         Endgame();
                     }
                     
-                    if ((string)t.Tag == "obstacle")
+                    if ((string)t.Tag == "Obstacle")
                     {
                         if( player.Bottom + player.FallSpeed > t.Top && player.Right >= t.Left && player.Left <= t.Right)
                         {
