@@ -16,6 +16,7 @@ namespace UntitledMonkeyGame
             this.Image = Properties.Resources.monkey;
             this.Height = 39;
             this.Width = 50;
+            this.Tag = "Monkey";
             Jumping = false;
             IsAirborne = false;
             JumpSpeed = 0;
