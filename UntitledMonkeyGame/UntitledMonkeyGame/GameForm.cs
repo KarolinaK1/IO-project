@@ -21,12 +21,15 @@ namespace UntitledMonkeyGame
         private int toskip = 0;
         Timer obstacleTimer = new Timer();
         private int obstacleSpeed;
+        System.Media.SoundPlayer wplayer = new System.Media.SoundPlayer();
         public restartImage()
         {
             InitializeComponent();
             GameReset();
             lbl_value.Text = Properties.Settings.Default.h_score;
             
+
+
 
         }
 
@@ -377,7 +380,7 @@ namespace UntitledMonkeyGame
 
         private void Endgame()
         {
-            
+            wplayer.Stop();
             timergame.Stop();
             obstacleTimer.Stop();
             lbl_over.Show();
