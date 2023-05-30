@@ -25,6 +25,9 @@ namespace UntitledMonkeyGame
         {
             InitializeComponent();
             GameReset();
+            lbl_value.Text = Properties.Settings.Default.h_score;
+            
+
         }
 
         private void GameReset()
@@ -39,16 +42,18 @@ namespace UntitledMonkeyGame
             myGame.Dock = DockStyle.Fill;
 
             //myGame.BackgroundImage = Properties.Resources.grass1;
-            //this.BackColor = Color.SkyBlue;
+            this.BackColor = Color.LightSkyBlue;
             
             this.player = new Monkey();
             player.Location = new Point(200, myGame.Height - player.Height);
             myGame.Controls.Add(player);
 
             GameScore = 0;
-            scoreText.Text = "Score: 0";
+            scoreText.Text = "Score: " + GameScore;
+            scoreText2.Text = "Score: " + GameScore;
             retryImage.Enabled = false;
             retryImage.Visible = false;
+            
 
             obstacleSpeed = 10;
 
@@ -60,6 +65,13 @@ namespace UntitledMonkeyGame
 
             timergame.Interval = 30;
             timergame.Start();
+
+            lbl_over.Hide();
+            scoreText.Hide();
+            high_score.Hide();
+            lbl_value.Hide();
+            scoreText2.Show();
+
         }
 
         private void GameTimer(object sender, EventArgs e)
@@ -67,8 +79,9 @@ namespace UntitledMonkeyGame
 
             
             scoreText.Text = "Score: " + GameScore;
+            scoreText2.Text = "Score: " + GameScore;
 
-            if(gameLevel==0 && GameScore == 10)
+            if (gameLevel==0 && GameScore == 10)
             {
                 obstacleTimer.Interval = 1500;
 
@@ -351,6 +364,7 @@ namespace UntitledMonkeyGame
         {
             this.myGame.Dispose();
             GameReset();
+            
         }
         Control GetControlByName(string Name)
         {
@@ -366,9 +380,35 @@ namespace UntitledMonkeyGame
             
             timergame.Stop();
             obstacleTimer.Stop();
-            scoreText.Text += " Game over!!!";
+            lbl_over.Show();
+            scoreText.Show();
+            scoreText2.Hide();
+            high_score.Show();
+            lbl_value.Show();
             retryImage.Enabled = true;
             retryImage.Visible = true;
+            int a = Int32.Parse(lbl_value.Text);
+            if (GameScore>a)
+            {
+                lbl_value.Text = GameScore.ToString();
+                Properties.Settings.Default.h_score = lbl_value.Text;
+                Properties.Settings.Default.Save();
+            }
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void scoreText2_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

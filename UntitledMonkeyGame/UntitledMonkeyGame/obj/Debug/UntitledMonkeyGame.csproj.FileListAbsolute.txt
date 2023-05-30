@@ -112,3 +112,15 @@ C:\Users\Administrator\monkeyjumpy\UntitledMonkeyGame\UntitledMonkeyGame\obj\Deb
 C:\Users\Administrator\monkeyjumpy\UntitledMonkeyGame\UntitledMonkeyGame\obj\Debug\UntitledMonkeyGame.pdb
 C:\Users\damai\Source\Repos\IO-project\UntitledMonkeyGame\UntitledMonkeyGame\obj\Debug\UntitledMonkeyGame.restartImage.resources
 C:\Users\StudentPL\Source\Repos\IO-project\UntitledMonkeyGame\UntitledMonkeyGame\obj\Debug\UntitledMonkeyGame.restartImage.resources
+C:\Users\Administrator\project\UntitledMonkeyGame\UntitledMonkeyGame\bin\Debug\UntitledMonkeyGame.exe.config
+C:\Users\Administrator\project\UntitledMonkeyGame\UntitledMonkeyGame\bin\Debug\UntitledMonkeyGame.exe
+C:\Users\Administrator\project\UntitledMonkeyGame\UntitledMonkeyGame\bin\Debug\UntitledMonkeyGame.pdb
+C:\Users\Administrator\project\UntitledMonkeyGame\UntitledMonkeyGame\obj\Debug\UntitledMonkeyGame.csproj.AssemblyReference.cache
+C:\Users\Administrator\project\UntitledMonkeyGame\UntitledMonkeyGame\obj\Debug\UntitledMonkeyGame.csproj.SuggestedBindingRedirects.cache
+C:\Users\Administrator\project\UntitledMonkeyGame\UntitledMonkeyGame\obj\Debug\UntitledMonkeyGame.restartImage.resources
+C:\Users\Administrator\project\UntitledMonkeyGame\UntitledMonkeyGame\obj\Debug\UntitledMonkeyGame.GameMenu.resources
+C:\Users\Administrator\project\UntitledMonkeyGame\UntitledMonkeyGame\obj\Debug\UntitledMonkeyGame.Properties.Resources.resources
+C:\Users\Administrator\project\UntitledMonkeyGame\UntitledMonkeyGame\obj\Debug\UntitledMonkeyGame.csproj.GenerateResource.cache
+C:\Users\Administrator\project\UntitledMonkeyGame\UntitledMonkeyGame\obj\Debug\UntitledMonkeyGame.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\project\UntitledMonkeyGame\UntitledMonkeyGame\obj\Debug\UntitledMonkeyGame.exe
+C:\Users\Administrator\project\UntitledMonkeyGame\UntitledMonkeyGame\obj\Debug\UntitledMonkeyGame.pdb
