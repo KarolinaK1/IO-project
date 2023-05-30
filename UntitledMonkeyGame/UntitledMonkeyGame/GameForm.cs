@@ -27,7 +27,8 @@ namespace UntitledMonkeyGame
             InitializeComponent();
             GameReset();
             lbl_value.Text = Properties.Settings.Default.h_score;
-            
+            wplayer.SoundLocation = "music.wav";
+
 
 
 
@@ -74,6 +75,8 @@ namespace UntitledMonkeyGame
             high_score.Hide();
             lbl_value.Hide();
             scoreText2.Show();
+            
+
 
         }
 
@@ -367,7 +370,8 @@ namespace UntitledMonkeyGame
         {
             this.myGame.Dispose();
             GameReset();
-            
+            wplayer.Play();
+
         }
         Control GetControlByName(string Name)
         {
