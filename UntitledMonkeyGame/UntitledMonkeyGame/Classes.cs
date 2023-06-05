@@ -19,6 +19,7 @@ namespace UntitledMonkeyGame
     {
         public Spike()
         {
+           // this.Image = Properties.Resources.spike;
             this.Tag = "Spike";
             this.Height = 100;
             this.Width = 50;

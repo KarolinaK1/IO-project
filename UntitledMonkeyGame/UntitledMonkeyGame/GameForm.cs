@@ -186,7 +186,7 @@ namespace UntitledMonkeyGame
             
             
             Random rnd = new Random();
-            int probability = rnd.Next(100);
+            int probability = rnd.Next(120);
             if(toskip == 0)
             {
                 if (probability < 10)
@@ -267,7 +267,7 @@ namespace UntitledMonkeyGame
                 else if (probability < 70)
                 {
                     Platform platform = new Platform();
-                    platform.Width = 90;
+                    platform.Width = 100;
                     platform.Height = 20;
                     platform.Location = new Point(myGame.Width, myGame.Height - 4* myGame.Height / 5);
                     myGame.Controls.Add(platform);
@@ -304,6 +304,67 @@ namespace UntitledMonkeyGame
                     banan.Location = new Point(myGame.Width+ rnd.Next(0, 100), 0);
                     myGame.Controls.Add(banan);
 
+                }
+                else if (probability < 110)
+                {
+
+                    Platform platform = new Platform();
+                    platform.Width = 100;
+                    platform.Height = 20;
+                    platform.Location = new Point(myGame.Width, myGame.Height - platform.Height - myGame.Height / 5);
+                    myGame.Controls.Add(platform);
+
+
+                    Platform platform2 = new Platform();
+                    platform2.Width = platform.Width;
+                    platform2.Height = platform.Height;
+                    platform2.Location = new Point(myGame.Width + platform.Width * 2, myGame.Height - platform2.Height - 2 * myGame.Height / 5);
+                    myGame.Controls.Add(platform2);
+                    toskip += 1;
+
+                    Platform platform3 = new Platform();
+                    platform3.Width = platform.Width;
+                    platform3.Height = platform.Height;
+                    platform3.Location = new Point(myGame.Width + platform2.Width * 4, myGame.Height - platform3.Height -   myGame.Height / 5);
+                    myGame.Controls.Add(platform3);
+                    toskip += 1;
+
+
+
+                    Banany banan = new Banany();
+                    banan.Name = "Falling";
+                    banan.Location = new Point(myGame.Width + rnd.Next(0, 100), 0);
+                    myGame.Controls.Add(banan);
+
+                    Banany banan2 = new Banany();
+                    banan2.Location = new Point(platform3.Left + 2 * platform3.Width, platform3.Top - banan.Height * 2);
+                    myGame.Controls.Add(banan2);
+
+                    Enemy enemy = new Enemy();
+                    enemy.Name = "Enemy";
+                    enemy.Location = new Point(myGame.Width + rnd.Next(150, 300), 0);
+                    myGame.Controls.Add(enemy);
+
+                }
+                else if(probability <120)
+                {
+                    this.Text = "LOL";
+
+                    Platform platform = new Platform();
+                    platform.Width = 175;
+                    platform.Height = 20;
+                    platform.Location = new Point(myGame.Width, myGame.Height - platform.Height - myGame.Height / 5);
+                    myGame.Controls.Add(platform);
+                    
+                    Spike kolce = new Spike();
+                    kolce.Width = 20;
+                    kolce.Height = 20;
+                    kolce.Location = new Point(myGame.Width + rnd.Next(platform.Width - kolce.Width), platform.Top - kolce.Height);
+                    myGame.Controls.Add(kolce);
+
+                    Banany banan = new Banany();
+                    banan.Location = new Point(myGame.Width, myGame.Height - platform.Height - 2 * myGame.Height / 5);
+                    myGame.Controls.Add(banan);
                 }
             }
             else 
