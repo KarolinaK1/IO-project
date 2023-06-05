@@ -267,10 +267,11 @@ namespace UntitledMonkeyGame
                 else if (probability < 70)
                 {
                     Platform platform = new Platform();
-                    platform.Width = 100;
+                    platform.Width = 90;
                     platform.Height = 20;
                     platform.Location = new Point(myGame.Width, myGame.Height - 4* myGame.Height / 5);
                     myGame.Controls.Add(platform);
+
 
 
                 }
