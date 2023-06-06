@@ -4,6 +4,8 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Media;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -21,13 +23,21 @@ namespace UntitledMonkeyGame
         private int toskip = 0;
         Timer obstacleTimer = new Timer();
         private int obstacleSpeed;
+       
         System.Media.SoundPlayer wplayer = new System.Media.SoundPlayer();
+       
+        System.Media.SoundPlayer eplayer = new System.Media.SoundPlayer();
+        
+
+
         public restartImage()
         {
             InitializeComponent();
             GameReset();
             lbl_value.Text = Properties.Settings.Default.h_score;
             wplayer.SoundLocation = "music.wav";
+            eplayer.SoundLocation = "negative.wav";
+            
 
 
 
@@ -75,8 +85,8 @@ namespace UntitledMonkeyGame
             high_score.Hide();
             lbl_value.Hide();
             scoreText2.Show();
-            
 
+            
 
         }
 
@@ -136,6 +146,7 @@ namespace UntitledMonkeyGame
                     {
                         if((string)t.Tag == "Bullet")
                         {
+                            
                             t.Left -= obstacleSpeed;
                             t.Top += obstacleSpeed;
                         }
@@ -145,16 +156,27 @@ namespace UntitledMonkeyGame
                     if (t.Left <= -t.Width || t.Bottom > myGame.Height)
                     {
                         ObjectToDelete = t;
+                       
                         
+
                     }
                     if (player.Bounds.IntersectsWith(t.Bounds) && (string)t.Tag == "Point")
                     {
+
+                        
                         GameScore = GameScore + 1;
+                       
                         ObjectToDelete = t;
+                        
+
+                        
+                        
                     }
                     if (player.Bounds.IntersectsWith(t.Bounds) && ((string)t.Tag == "Obstacle" || (string)t.Tag == "Spike" || (string)t.Tag == "Bullet"))
                     {
                         Endgame();
+                        eplayer.Play();
+                        
                     }
                     
 
@@ -178,13 +200,16 @@ namespace UntitledMonkeyGame
             }
             if(ObjectToDelete is PictureBox)myGame.Controls.Remove(ObjectToDelete);
 
-
+            
         }
 
+       
+
+         
         private void ObstacleTimer_Tick(object sender, EventArgs e)
         {
-            
-            
+           
+
             Random rnd = new Random();
             int probability = rnd.Next(120);
             if(toskip == 0)
@@ -289,11 +314,13 @@ namespace UntitledMonkeyGame
                 {
                     if (probability < 100 && !myGame.Controls.ContainsKey("Enemy"))
                     {
-                        this.Text = "SADFG";
+                        
                         Enemy enemy = new Enemy();
                         enemy.Name = "Enemy";
                         enemy.Location = new Point(myGame.Width + rnd.Next(150, 300), 0);
+                        
                         myGame.Controls.Add(enemy);
+                        
                     }
 
                 }
@@ -344,11 +371,12 @@ namespace UntitledMonkeyGame
                     enemy.Name = "Enemy";
                     enemy.Location = new Point(myGame.Width + rnd.Next(150, 300), 0);
                     myGame.Controls.Add(enemy);
+                   
 
                 }
                 else if(probability <120)
                 {
-                    this.Text = "LOL";
+                    
 
                     Platform platform = new Platform();
                     platform.Width = 175;
@@ -385,7 +413,17 @@ namespace UntitledMonkeyGame
                     bullet.Visible = true;
                     bullet.Location = GetControlByName("Enemy").Location;
                     myGame.Controls.Add(bullet);
+
+                    
+                   
+
+
+
+
+
                 }
+               
+                
                 
             }
 
@@ -433,6 +471,7 @@ namespace UntitledMonkeyGame
             this.myGame.Dispose();
             GameReset();
             wplayer.Play();
+            
 
         }
         Control GetControlByName(string Name)
@@ -446,6 +485,7 @@ namespace UntitledMonkeyGame
 
         private void Endgame()
         {
+            
             wplayer.Stop();
             timergame.Stop();
             obstacleTimer.Stop();

@@ -63,7 +63,7 @@ namespace UntitledMonkeyGame
             // 
             this.retryImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.retryImage.Image = global::UntitledMonkeyGame.Properties.Resources.retry;
-            this.retryImage.Location = new System.Drawing.Point(308, 244);
+            this.retryImage.Location = new System.Drawing.Point(308, 216);
             this.retryImage.Name = "retryImage";
             this.retryImage.Size = new System.Drawing.Size(248, 82);
             this.retryImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -90,7 +90,7 @@ namespace UntitledMonkeyGame
             this.lbl_over.BackColor = System.Drawing.Color.Transparent;
             this.lbl_over.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_over.ForeColor = System.Drawing.Color.Red;
-            this.lbl_over.Location = new System.Drawing.Point(298, 160);
+            this.lbl_over.Location = new System.Drawing.Point(298, 149);
             this.lbl_over.Name = "lbl_over";
             this.lbl_over.Size = new System.Drawing.Size(271, 55);
             this.lbl_over.TabIndex = 4;
@@ -113,7 +113,7 @@ namespace UntitledMonkeyGame
             // scoreText2
             // 
             this.scoreText2.AutoSize = true;
-            this.scoreText2.BackColor = System.Drawing.Color.Transparent;
+            this.scoreText2.BackColor = System.Drawing.Color.Yellow;
             this.scoreText2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.scoreText2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.scoreText2.ForeColor = System.Drawing.Color.Black;
