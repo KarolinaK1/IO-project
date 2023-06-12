@@ -19,10 +19,11 @@ namespace UntitledMonkeyGame
     {
         public Spike()
         {
-           // this.Image = Properties.Resources.spike;
+            this.Image = Properties.Resources.spike;
             this.Tag = "Spike";
             this.Height = 100;
             this.Width = 50;
+            SetStyle(ControlStyles.SupportsTransparentBackColor, true);
             this.BackColor = Color.Red;
 
         }
@@ -45,8 +46,8 @@ namespace UntitledMonkeyGame
         public Enemy()
         {
             this.Tag = "Enemy";
-            this.Height = 50;
-            this.Width = 50;
+            this.Height = 40;
+            this.Width = 40;
             this.BackColor = Color.Purple;
         }
     }
