@@ -296,7 +296,7 @@ namespace UntitledMonkeyGame
 
 
             Random rnd = new Random();
-            int probability = rnd.Next(120);
+            int probability = rnd.Next(150);
             if(toskip == 0)
             {
                 if (probability < 10)
@@ -402,7 +402,7 @@ namespace UntitledMonkeyGame
                         
                         Enemy enemy = new Enemy();
                         enemy.Name = "Enemy";
-                        enemy.Location = new Point(myGame.Width + rnd.Next(150, 300), 0);
+                        enemy.Location = new Point(myGame.Width, myGame.Height - enemy.Height); 
                         
                         myGame.Controls.Add(enemy);
 
@@ -482,6 +482,63 @@ namespace UntitledMonkeyGame
                     banan.Location = new Point(myGame.Width, myGame.Height - platform.Height - 2 * myGame.Height / 5);
                     myGame.Controls.Add(banan);
                 }
+                else if (probability < 130)
+                {
+
+
+                    Platform platform = new Platform();
+                    platform.Width = 175;
+                    platform.Height = 20;
+                    platform.Location = new Point(myGame.Width, myGame.Height - platform.Height - myGame.Height / 5);
+                    myGame.Controls.Add(platform);
+
+                    Enemy enemy = new Enemy();
+                    enemy.Name = "Enemy";
+                    enemy.Location = new Point(myGame.Width + rnd.Next(platform.Width - enemy.Width), platform.Top - enemy.Height);
+                    myGame.Controls.Add(enemy);
+
+                }
+                else if (probability < 140)
+                {
+
+                    Platform platform = new Platform();
+                    platform.Width = 175;
+                    platform.Height = 20;
+                    platform.Location = new Point(myGame.Width, myGame.Height - platform.Height - myGame.Height / 5);
+                    myGame.Controls.Add(platform);
+
+                    Enemy enemy = new Enemy();
+                    enemy.Name = "Enemy";
+                    enemy.Location = new Point(myGame.Width + rnd.Next(platform.Width - enemy.Width), platform.Top - enemy.Height);
+                    myGame.Controls.Add(enemy);
+
+                    Enemy enemy2 = new Enemy();
+                    enemy2.Name = "Enemy";
+                    enemy2.Location = new Point(myGame.Width + platform.Width * 2, myGame.Height - enemy2.Height);
+                    myGame.Controls.Add(enemy2);
+
+                    myGame.Controls.Add(enemy);
+                    myGame.Controls.Add(enemy2);
+                }
+                else if (probability < 150)
+                {
+                    Enemy enemy = new Enemy();
+                    enemy.Name = "Enemy";
+                    enemy.Location = new Point(myGame.Width, myGame.Height - enemy.Height);
+                    myGame.Controls.Add(enemy);
+
+                    Platform platform = new Platform();
+                    platform.Width = 150;
+                    platform.Height = 20;
+                    platform.Location = new Point(myGame.Width + platform.Width * 2, myGame.Height - platform.Height - myGame.Height / 5);
+                    myGame.Controls.Add(platform);
+
+                    Enemy enemy2 = new Enemy();
+                    enemy2.Name = "Enemy";
+                    enemy2.Location = new Point(myGame.Width + platform.Width * 2, platform.Top - enemy2.Height);
+                    myGame.Controls.Add(enemy2);
+
+                }
             }
             else 
             {
@@ -491,7 +548,7 @@ namespace UntitledMonkeyGame
 
             if (myGame.Controls.ContainsKey("Enemy") && !myGame.Controls.ContainsKey("Bullet"))
             {
-                List<PictureBox> enemiesToShoot = new List<PictureBox>();
+                    List<PictureBox> enemiesToShoot = new List<PictureBox>();
                 foreach (Control control in myGame.Controls)
                 {
                     if (control is PictureBox enemy && enemy.Name == "Enemy")

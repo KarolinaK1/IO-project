@@ -170,3 +170,14 @@ C:\Users\mateu\Source\Repos\IO-project5\UntitledMonkeyGame\UntitledMonkeyGame\ob
 C:\Users\mateu\Source\Repos\IO-project5\UntitledMonkeyGame\UntitledMonkeyGame\obj\Debug\UntitledMonkeyGame.csproj.CoreCompileInputs.cache
 C:\Users\mateu\Source\Repos\IO-project5\UntitledMonkeyGame\UntitledMonkeyGame\obj\Debug\UntitledMonkeyGame.exe
 C:\Users\mateu\Source\Repos\IO-project5\UntitledMonkeyGame\UntitledMonkeyGame\obj\Debug\UntitledMonkeyGame.pdb
+C:\Users\mateu\Source\Repos\IO-project9\UntitledMonkeyGame\UntitledMonkeyGame\bin\Debug\UntitledMonkeyGame.exe.config
+C:\Users\mateu\Source\Repos\IO-project9\UntitledMonkeyGame\UntitledMonkeyGame\bin\Debug\UntitledMonkeyGame.exe
+C:\Users\mateu\Source\Repos\IO-project9\UntitledMonkeyGame\UntitledMonkeyGame\bin\Debug\UntitledMonkeyGame.pdb
+C:\Users\mateu\Source\Repos\IO-project9\UntitledMonkeyGame\UntitledMonkeyGame\obj\Debug\UntitledMonkeyGame.csproj.AssemblyReference.cache
+C:\Users\mateu\Source\Repos\IO-project9\UntitledMonkeyGame\UntitledMonkeyGame\obj\Debug\UntitledMonkeyGame.restartImage.resources
+C:\Users\mateu\Source\Repos\IO-project9\UntitledMonkeyGame\UntitledMonkeyGame\obj\Debug\UntitledMonkeyGame.GameMenu.resources
+C:\Users\mateu\Source\Repos\IO-project9\UntitledMonkeyGame\UntitledMonkeyGame\obj\Debug\UntitledMonkeyGame.Properties.Resources.resources
+C:\Users\mateu\Source\Repos\IO-project9\UntitledMonkeyGame\UntitledMonkeyGame\obj\Debug\UntitledMonkeyGame.csproj.GenerateResource.cache
+C:\Users\mateu\Source\Repos\IO-project9\UntitledMonkeyGame\UntitledMonkeyGame\obj\Debug\UntitledMonkeyGame.csproj.CoreCompileInputs.cache
+C:\Users\mateu\Source\Repos\IO-project9\UntitledMonkeyGame\UntitledMonkeyGame\obj\Debug\UntitledMonkeyGame.exe
+C:\Users\mateu\Source\Repos\IO-project9\UntitledMonkeyGame\UntitledMonkeyGame\obj\Debug\UntitledMonkeyGame.pdb
