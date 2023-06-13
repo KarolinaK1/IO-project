@@ -233,7 +233,7 @@ namespace UntitledMonkeyGame
                         {
 
                             t.Left -= obstacleSpeed;
-                            t.Top += obstacleSpeed;
+                           // t.Top += obstacleSpeed;
                         }
                         if (t.Name == "Falling" && t.Bottom < myGame.Height) t.Top += obstacleSpeed / 3;
                         t.Left -= obstacleSpeed;
@@ -297,7 +297,7 @@ namespace UntitledMonkeyGame
 
             Random rnd = new Random();
             int probability = rnd.Next(120);
-            if (toskip == 0)
+            if(toskip == 0)
             {
                 if (probability < 10)
                 {
@@ -399,11 +399,11 @@ namespace UntitledMonkeyGame
                 {
                     if (probability < 100 && !myGame.Controls.ContainsKey("Enemy"))
                     {
-
+                        
                         Enemy enemy = new Enemy();
                         enemy.Name = "Enemy";
                         enemy.Location = new Point(myGame.Width + rnd.Next(150, 300), 0);
-
+                        
                         myGame.Controls.Add(enemy);
 
                     }
@@ -454,7 +454,10 @@ namespace UntitledMonkeyGame
 
                     Enemy enemy = new Enemy();
                     enemy.Name = "Enemy";
-                    enemy.Location = new Point(myGame.Width + rnd.Next(150, 300), 0);
+                    enemy.Location = new Point(myGame.Width + platform.Width * 2, myGame.Height - enemy.Height);
+                    myGame.Controls.Add(enemy);
+
+
                     myGame.Controls.Add(enemy);
 
 
@@ -480,15 +483,24 @@ namespace UntitledMonkeyGame
                     myGame.Controls.Add(banan);
                 }
             }
-            else
+            else 
             {
-
-                toskip--;
+                
+                toskip--; 
             }
 
             if (myGame.Controls.ContainsKey("Enemy") && !myGame.Controls.ContainsKey("Bullet"))
             {
-                if (GetControlByName("Enemy") != null)
+                List<PictureBox> enemiesToShoot = new List<PictureBox>();
+                foreach (Control control in myGame.Controls)
+                {
+                    if (control is PictureBox enemy && enemy.Name == "Enemy")
+                    {
+                        enemiesToShoot.Add(enemy);
+                    }
+                }
+
+                foreach (PictureBox enemyToShoot in enemiesToShoot)
                 {
                     PictureBox bullet = new PictureBox();
                     bullet.Width = player.Width / 2;
@@ -496,20 +508,20 @@ namespace UntitledMonkeyGame
                     bullet.Height = player.Height / 2;
                     bullet.BackColor = Color.Red;
                     bullet.Visible = true;
-                    bullet.Location = GetControlByName("Enemy").Location;
+                    bullet.Location = enemyToShoot.Location;
                     myGame.Controls.Add(bullet);
 
-
-
+                    
+                   
 
 
 
 
 
                 }
-
-
-
+               
+                
+                
             }
 
 
